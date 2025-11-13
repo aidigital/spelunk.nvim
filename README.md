@@ -99,6 +99,8 @@ Here's the default mapping object for reference:
 		close = 'q',
 		-- Open the help menu
 		help = 'h',
+		-- Edit line of a bookmark, then press this to save it
+		edit_line = 'w',
 	},
 	-- Flag to enable directory-scoped bookmark persistence
 	enable_persist = false,

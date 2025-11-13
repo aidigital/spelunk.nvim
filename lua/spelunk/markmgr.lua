@@ -464,4 +464,12 @@ M.get_mark_meta = function(stack_idx, mark_idx, field)
 	return stacks[stack_idx].marks[mark_idx].meta[field]
 end
 
+---@param stack_idx integer
+---@param mark_idx integer
+---@param field string
+---@return Mark
+M.get_mark = function(stack_idx, mark_idx)
+	return stacks[stack_idx].marks[mark_idx]
+end
+
 return M
