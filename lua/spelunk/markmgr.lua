@@ -466,7 +466,6 @@ end
 
 ---@param stack_idx integer
 ---@param mark_idx integer
----@param field string
 ---@return Mark
 M.get_mark = function(stack_idx, mark_idx)
 	return stacks[stack_idx].marks[mark_idx]
