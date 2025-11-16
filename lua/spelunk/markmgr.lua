@@ -470,4 +470,11 @@ M.stacks = function()
 	return stacks
 end
 
+---@param stack_idx integer
+---@param mark_idx integer
+---@return Mark
+M.get_mark = function(stack_idx, mark_idx)
+	return stacks[stack_idx].marks[mark_idx]
+end
+
 return M
