@@ -1,3 +1,7 @@
+# Welcome to the future
+
+This branch is a fork ok [spelunk.nvim](https://github.com/EvWilson/spelunk.nvim), with the improvements in [my PRs](https://github.com/EvWilson/spelunk.nvim/pulls/aidigital).
+
 # spelunk.nvim
 
 Marks not cutting it? Create and manage bookmarks more easily, with an easy to use and configurable UI.
