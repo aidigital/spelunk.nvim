@@ -482,6 +482,43 @@ M.setup = function(c)
 		"[spelunk.nvim] Fuzzy find bookmarks in current stack"
 	)
 	set(base_config.search_stacks, telescope.extensions.spelunk.stacks, "[spelunk.nvim] Fuzzy find stacks")
+    set(base_config.change_line, M.change_mark_line, "[spelunk.nvim] Change bookmark line")
+end
+
+--- Update the line of the selected mark in the current stack.
+M.change_mark_line = function()
+    local line =  vim.fn.line(".")
+    ---@type integer | nil
+    local mark_idx = markmgr.get_mark_idx_from_line(current_stack_index, vim.api.nvim_buf_get_name(0), line)
+    if not mark_idx then
+        vim.notify("[spelunk.nvim] No bookmark on line " .. line, vim.log.levels.ERROR)
+        return
+    end
+
+    ---@type Mark
+    local mark = markmgr.get_mark(current_stack_index, mark_idx)
+    local old_line = mark.line
+
+    local new_line = tonumber(vim.fn.input("[spelunk.nvim] Move bookmark to line: "))
+    if not new_line or new_line == 0 then
+        return
+    end
+
+    if new_line == old_line then
+        return
+    end
+
+    local nr_lines = util.line_count(mark.file)
+    if new_line > nr_lines then
+        vim.notify("[spelunk.nvim] This file only has " .. nr_lines .. " lines", vim.log.levels.ERROR)
+        return
+    end
+
+    mark.line = new_line
+
+    M.persist()
+    update_window(true)
+    vim.notify(string.format("[spelunk.nvim] Bookmark %d line change: %d -> %d", cursor_index, old_line, new_line))
 end
 
 

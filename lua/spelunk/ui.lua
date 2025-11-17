@@ -198,7 +198,7 @@ M.show_help = function()
 		"---------------",
 		"Toggle UI               " .. fmt(base_config.toggle),
 		"Add bookmark            " .. fmt(base_config.add),
-		"Delete current bookmark " .. fmt(base_config.delete),
+		"Change line             " .. fmt(base_config.change_line),
 		"Next bookmark           " .. fmt(base_config.next_bookmark),
 		"Prev bookmark           " .. fmt(base_config.prev_bookmark),
 		"Search bookmarks        " .. fmt(base_config.search_bookmarks),
