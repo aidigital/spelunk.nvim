@@ -545,4 +545,8 @@ M.update_mark_line=function()
     vim.notify(string.format("[spelunk.nvim] Bookmark %d line change: %d -> %d", cursor_index, old_line, new_line))
 end
 
+M.get_current_stack_index = function()
+    return current_stack_index
+end
+
 return M
