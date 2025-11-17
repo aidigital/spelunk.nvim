@@ -487,7 +487,12 @@ M.get_mark_idx_from_line = function(stack_idx, file, line)
             return mark_idx
         end
 	end
-    return nil
+  return nil
+end
+
+---@return MarkStack[]
+M.stacks = function()
+	return stacks
 end
 
 return M
